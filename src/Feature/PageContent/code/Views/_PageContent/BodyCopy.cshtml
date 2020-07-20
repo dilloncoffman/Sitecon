@@ -1,4 +1,5 @@
 ﻿@using Sitecore.Mvc
 @using Sitecore.Mvc.Presentation
-@model RenderingModel
-<p class="dropcap mb-1">@Html.Sitecore().Field("Body Copy")</p>
+@using Sitecon.Feature.PageContent
+
+<p class="dropcap mb-1">@Html.Sitecore().Field(Templates.BodyCopy.Fields.BodyCopy.ToString())</p>
