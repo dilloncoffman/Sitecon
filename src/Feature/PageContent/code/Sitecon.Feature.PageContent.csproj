@@ -1,17 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <RootNamespace>Sitecon.Project.Website</RootNamespace>
-    <AssemblyName>Sitecon.Project.Website</AssemblyName>
+    <RootNamespace>Sitecon.Feature.PageContent</RootNamespace>
+    <AssemblyName>Sitecon.Feature.PageContent</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Views\Website\Layouts\Default.cshtml" />
+    <None Remove="Views\_PageContent\BodyCopy.cshtml" />
+    <None Remove="Views\_PageContent\Shared\_EventDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Sitecore.Analytics" Version="9.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <Content Update="Views\Website\Layouts\Default.cshtml">
+    <Content Update="Views\_PageContent\BodyCopy.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\_PageContent\Shared\_EventDetail.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
