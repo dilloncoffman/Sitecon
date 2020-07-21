@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Sitecore.Data;
 
 namespace Sitecon.Feature.PageContent
@@ -21,6 +17,14 @@ namespace Sitecon.Feature.PageContent
       {
         public static readonly ID Image1 = new ID("{DF162CB7-9DF1-455D-A6D5-FE9A05CB933C}");
         public static readonly ID Image2 = new ID("{1333AB98-25E5-4C16-B15B-C0CB992642B1}");
+      }
+    }
+    public static class TitleAndText
+    {
+      public static class Fields
+      {
+        public static readonly ID ComponentTitle = new ID("{D3F7EF3D-D9A4-44E8-8CB2-577CC978FBBE}");
+        public static readonly ID ComponentText = new ID("{B13BA8DA-0E20-4D39-BB39-D51EEA1E921B}");
       }
     }
   }
