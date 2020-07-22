@@ -17,6 +17,9 @@
     <ProjectReference Include="..\..\..\Foundation\SitecoreHelperExtensions\code\Sitecon.Foundation.SitecoreHelperExtensions.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Content Update="Views\_PageContent\ListWithIcons.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Views\_PageContent\BodyCopy.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

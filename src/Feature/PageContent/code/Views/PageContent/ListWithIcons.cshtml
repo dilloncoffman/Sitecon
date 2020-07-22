@@ -1,0 +1,14 @@
+﻿@using Sitecore.Mvc
+@using Sitecon.Feature.PageContent
+@using Sitecon.Foundation.SitecoreHelperExtensions
+@model Sitecon.Feature.PageContent.Models.ListWithIconsItems
+
+<ul class="fa-ul">
+  @foreach (var li in Model.ListItems)
+  {
+    <li>
+      <span class="fa-li"><i class="fas fa-@Model.ListIcon"></i></span>@li
+    </li>
+  }
+
+</ul>

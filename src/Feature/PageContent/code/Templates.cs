@@ -27,5 +27,13 @@ namespace Sitecon.Feature.PageContent
         public static readonly ID ComponentText = new ID("{B13BA8DA-0E20-4D39-BB39-D51EEA1E921B}");
       }
     }
+    public static class ListWithIcons
+    {
+      public static class Fields
+      {
+        public static readonly ID ListIcon = new ID("{4C145471-1097-4AAB-BC82-BF8137C1E22B}");
+        public static readonly ID ListText = new ID("{CBB1AEFE-3BA9-4AA4-832A-23274635109F}");
+      }
+    }
   }
 }
