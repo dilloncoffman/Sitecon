@@ -73,5 +73,50 @@ namespace Sitecon.Feature.Navigation.Controllers
 
       return View(header);
     }
+
+    public ActionResult Footer()
+    {
+      if (Sitecore.Context.Item == null)
+      {
+        return null;
+      }
+
+      var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+      if (string.IsNullOrEmpty(dataSourceId))
+      {
+        return null;
+      }
+      var item = Sitecore.Context.Database.GetItem(dataSourceId);
+      if (item == null)
+      {
+        return null;
+      }
+
+      Footer footer = new Footer();
+
+      // Left Text
+      footer.FooterTextLeft = item.Fields[Templates.Footer.Fields.FooterTextLeft].Value;
+
+      // Left Link - General Link with Search Field
+      LinkField leftLink = item.Fields[Templates.Footer.Fields.FooterLinkLeft];
+      footer.FooterLinkUrlLeft = leftLink != null && leftLink.TargetItem != null
+        ? string.Format("{0}#{1}", Sitecore.Links.LinkManager.GetItemUrl(leftLink.TargetItem), leftLink.Anchor)
+        : string.Empty;
+      footer.FooterLinkTargetLeft = leftLink.Target;
+      footer.FooterLinkTextLeft = item.Fields[Templates.Footer.Fields.FooterLinkTextLeft].Value;
+
+      // Right Text
+      footer.FooterTextRight = item.Fields[Templates.Footer.Fields.FooterTextRight].Value;
+
+      // Right Link - General Link Field - external link so no need to format the Url to include the anchor
+      LinkField rightLink = item.Fields[Templates.Footer.Fields.FooterLinkRight];
+      footer.FooterLinkUrlRight = rightLink != null && rightLink.TargetItem != null
+          ? Sitecore.Links.LinkManager.GetItemUrl(rightLink.TargetItem)
+          : rightLink.Url;
+      footer.FooterLinkTargetRight = rightLink.Target;
+      footer.FooterLinkTextRight = item.Fields[Templates.Footer.Fields.FooterLinkTextRight].Value;
+
+      return View(footer);
+    }
   }
 }
