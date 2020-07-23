@@ -63,6 +63,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sitecon.Feature.Navigation", "src\Feature\Navigation\code\Sitecon.Feature.Navigation.csproj", "{45C81E8D-F862-47F9-BED7-19A1B0DC10B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Events", "Events", "{5154769E-D7C4-41BA-8E06-607599A2E218}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sitecon.Feature.Events", "src\Feature\Events\code\Sitecon.Feature.Events.csproj", "{EF890021-3B9E-4013-AA55-01E7CBB264BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +93,10 @@ Global
 		{45C81E8D-F862-47F9-BED7-19A1B0DC10B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45C81E8D-F862-47F9-BED7-19A1B0DC10B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45C81E8D-F862-47F9-BED7-19A1B0DC10B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF890021-3B9E-4013-AA55-01E7CBB264BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF890021-3B9E-4013-AA55-01E7CBB264BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF890021-3B9E-4013-AA55-01E7CBB264BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF890021-3B9E-4013-AA55-01E7CBB264BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +114,8 @@ Global
 		{F2ED2270-C51D-47FA-8E70-8BE8E170D1CB} = {3076EFC9-1BC2-45C7-8CCE-87F8540FD22B}
 		{4C77C73A-8A40-4C66-BDF7-22D8A2407C22} = {2BDAC3B1-0C4B-4D63-991C-A315E3C7E36A}
 		{45C81E8D-F862-47F9-BED7-19A1B0DC10B0} = {4C77C73A-8A40-4C66-BDF7-22D8A2407C22}
+		{5154769E-D7C4-41BA-8E06-607599A2E218} = {2BDAC3B1-0C4B-4D63-991C-A315E3C7E36A}
+		{EF890021-3B9E-4013-AA55-01E7CBB264BF} = {5154769E-D7C4-41BA-8E06-607599A2E218}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F724FE8B-8B52-4D60-89F5-2CC3CB7EBE47}
