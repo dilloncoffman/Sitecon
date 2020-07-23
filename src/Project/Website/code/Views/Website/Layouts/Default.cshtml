@@ -43,46 +43,9 @@
   <!-- ===============================================-->
   <main>
 
-
-    <!-- ============================================-->
-    <!-- Preloader ==================================-->
-    <div class="preloader p-0" id="preloader">
-      <div class="loader d-flex flex-column align-items-center">
-        <div class="ball-scale-ripple">
-          <div></div>
-        </div>
-        <h5 class="fs-1 pr- text-light text-uppercase mb-0 mt-3">Loading</h5>
-      </div>
+    <div>
+      @Html.Sitecore().Placeholder("header")
     </div>
-    <!-- ============================================-->
-    <!-- End of Preloader ===========================--><a class="bottom-to-top rounded-soft" href="#top" data-fancyscroll><span class="fas fa-angle-up lg" data-fa-transform="down-2"></span></a>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0" id="top">
-      <div class="container">
-        <a class="navbar-brand ml-3 ml-md-0" href="index.html"><img src="~/assets/img/logos/logo.png" alt="logo" style="margin-bottom: 3px;" /></a>
-        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse ml-2 ml-md-0" id="navbarContent">
-          <ul class="navbar-nav text-uppercase font-weight-semi-bold ml-auto" id="navbar-spy">
-            <li class="nav-item"><a class="nav-link" href="#" data-fancyscroll="data-fancyscroll"><span class="nav-link-text"> Home</span></a></li>
-            <li class="nav-item dropdown dropdown-menu-on-hover">
-              <a class="nav-link dropdown-toggle" id="navbarDropdown2" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Events</span></a>
-              <div class="dropdown-menu dropdown-menu-right rounded-soft" aria-labelledby="navbarDropdown2">
-                <a class="dropdown-item" href="event pages/Getting-Started-with-Sitecore-PowerShell-Extensions.html">Getting Started with Sitecore PowerShell Extensions</a>
-                <a class="dropdown-item" href="event pages/Helix-and-Sitecore-JavaScript-Services-(JSS).html">Helix and Sitecore Javascript Services (JSS)</a>
-                <a class="dropdown-item" href="event pages/Key-ingredients-for-successful-personalization.html">Key Ingredients for Successful Personalization</a>
-                <a class="dropdown-item" href="event pages/Manage-Static-Resources-in-Sitecore-in-a-Helix-Way.html">Manage Static Resources in Sitecore in a Helix Way</a>
-                <a class="dropdown-item" href="event pages/Using-and-Customizing-Sitecore-SXA.html">Using and Customizing Sitecore SXA</a>
-                <a class="dropdown-item" href="event pages/Optimize-Your-Website-Images-By-80-Percent-in-Helix-Using-a-Sitecore-Module.html">Optimize Your Website Images by 80% in Helix Using a Sitecore Module</a>
-                <a class="dropdown-item" href="event pages/Search-in-Sitecore-JSS.html">Search in Sitecore JSS</a>
-                <a class="dropdown-item" href="event pages/Choosing-the-Right-Option-for-Building-Your-Helix-Solutions.html">Choosing the Right Option for Building Your Helix Solutions</a>
-                <a class="dropdown-item" href="event pages/JavaScript-Services-and-Marketing-Automation.html">JavaScript Services &amp; Marketing Automation</a>
-                <a class="dropdown-item" href="event pages/Closing-Keynote-Panel.html">Closing Keynote Panel</a>
-              </div>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#Schedule" data-fancyscroll="data-fancyscroll"> <span class="nav-link-text">Schedule</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
     <div>
       @Html.Sitecore().Placeholder("main")
