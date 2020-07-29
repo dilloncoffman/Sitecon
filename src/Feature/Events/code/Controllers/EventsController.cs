@@ -1,5 +1,5 @@
 ﻿using Sitecon.Feature.Events.Models;
-//using Sitecon.Feature.Events.Helpers;
+using Sitecon.Feature.Events.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,9 @@ using Sitecore.Data.Items;
 using Sitecore.Data.Fields;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Diagnostics;
+using Sitecore.ContentSearch;
+using Sitecore.ContentSearch.SearchTypes;
+using Sitecore.Links;
 
 namespace Sitecon.Feature.Events.Controllers
 {
@@ -92,43 +95,89 @@ namespace Sitecon.Feature.Events.Controllers
       return View(featuredSpeakers);
     }
 
-    //public ActionResult EventSchedule()
-    //{
-    //  if (Sitecore.Context.Item == null)
-    //  {
-    //    return null;
-    //  }
+    public ActionResult EventSchedule()
+    {
+      if (Sitecore.Context.Item == null)
+      {
+        return null;
+      }
 
-    //  var dataSourceId = Sitecore.Context.Item.ID.ToString();
-    //  Assert.IsNotNullOrEmpty(dataSourceId, "dataSourceId is null or empty");
-    //  var item = Sitecore.Context.Database.GetItem(dataSourceId);
-    //  if (item == null)
-    //  {
-    //    return null;
-    //  }
+      var dataSourceId = Sitecore.Context.Item.ID.ToString();
+      Assert.IsNotNullOrEmpty(dataSourceId, "dataSourceId is null or empty");
+      var item = Sitecore.Context.Database.GetItem(dataSourceId);
+      if (item == null)
+      {
+        return null;
+      }
 
-    //  EventSchedule eventSchedule = new EventSchedule();
+      EventSchedule eventSchedule = new EventSchedule();
 
-    //  //Background Image
-    //  ImageField eventScheduleBackgroundImageField = item.Fields[Templates.EventSchedule.Fields.EventScheduleBackground];
-    //  eventSchedule.EventScheduleBgImgUrl = Sitecore.Resources.Media.MediaManager.GetMediaUrl(eventScheduleBackgroundImageField.MediaItem);
+      // Background Image
+      ImageField eventScheduleBackgroundImageField = item.Fields[Templates.EventSchedule.Fields.EventScheduleBackground];
+      eventSchedule.EventScheduleBgImgUrl = Sitecore.Resources.Media.MediaManager.GetMediaUrl(eventScheduleBackgroundImageField.MediaItem);
 
-    //  EventHelpers helpers = new EventHelpers();
+      EventHelpers helpers = new EventHelpers();
 
-    //  //Multilist
-    //  MultilistField day1EventsListField = item.Fields[Templates.EventSchedule.Fields.EventScheduleDay1Events];
-    //  eventSchedule.EventScheduleDay1Events = helpers.PopulateEventList(day1EventsListField);
+      // Multilist
+      MultilistField day1EventsListField = item.Fields[Templates.EventSchedule.Fields.EventScheduleDay1Events];
+      eventSchedule.EventScheduleDay1Events = helpers.PopulateEventList(day1EventsListField);
 
-    //  //Date Field
-    //  DateField day2DateField = item.Fields[Templates.EventSchedule.Fields.EventScheduleDay2Date];
-    //  DateTime day2DateTime = day2DateField.DateTime;
-    //  eventSchedule.EventScheduleDay2Date = day2DateTime.ToString("MMMM dd");
+      // Date Field
+      DateField day2DateField = item.Fields[Templates.EventSchedule.Fields.EventScheduleDay2Date];
+      DateTime day2DateTime = day2DateField.DateTime;
+      eventSchedule.EventScheduleDay2Date = day2DateTime.ToString("MMMM dd");
 
-    //  //Multilist
-    //  MultilistField day2EventsListField = item.Fields[Templates.EventSchedule.Fields.EventScheduleDay2Events];
-    //  eventSchedule.EventScheduleDay2Events = helpers.PopulateEventList(day2EventsListField);
+      // Multilist
+      MultilistField day2EventsListField = item.Fields[Templates.EventSchedule.Fields.EventScheduleDay2Events];
+      eventSchedule.EventScheduleDay2Events = helpers.PopulateEventList(day2EventsListField);
 
-    //  return View(eventSchedule);
-    //}
+      return View(eventSchedule);
+    }
+
+    public ActionResult ThisMonthsEvents()
+
+    {
+      var searchList = new EventsSearch();
+
+      var eventID = RenderingContext.CurrentOrNull.Rendering.DataSource; // Gets the id value of the datasource item 
+
+      if (eventID != null)
+
+      {
+
+        var eventItem = Sitecore.Context.Database.GetItem(eventID); // Gets the datasource item using the GUID/path 
+
+        if (eventItem != null)
+
+        {
+
+          // Creating a search using ContentSearch API 
+          var index = ContentSearchManager.GetIndex("sitecore_master_index");
+
+          using (var context = index.CreateSearchContext())
+
+          {
+
+            var mySearch = context.GetQueryable<SearchResultItem>()
+
+                .Where(x => x["Event Name"].Contains("Search")).ToList().Select(item => item.GetItem()).ToList();
+
+            searchList.ListOfEventItems = mySearch.Select(item => new EventItem
+
+            {
+
+              Item = item,
+
+              Url = LinkManager.GetItemUrl(item),
+
+            }).ToList();
+
+          }
+        }
+      }
+
+      return View(searchList);
+
+    }
   }
 }

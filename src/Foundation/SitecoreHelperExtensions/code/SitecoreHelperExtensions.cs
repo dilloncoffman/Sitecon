@@ -1,6 +1,7 @@
 ﻿using Sitecore.Data;
 using Sitecore.Mvc.Helpers;
 using System.Web;
+using Sitecore.Data.Items;
 
 namespace Sitecon.Foundation.SitecoreHelperExtensions
 {
@@ -16,5 +17,10 @@ namespace Sitecon.Foundation.SitecoreHelperExtensions
         {
           return helper.Field(fieldID.ToString(), parameters);
         }
+
+        //public static string GetFieldValue(this Item item, string fieldName)
+        //{
+        //  return (item[fieldName] != null) ? item[fieldName] : string.Empty;
+        //}
   }
 }

@@ -5,9 +5,24 @@
     <AssemblyName>Sitecon.Feature.Events</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Views\Events\EventSchedule.cshtml" />
     <None Remove="Views\Events\FeaturedSpeakers.cshtml" />
+    <None Remove="Views\Events\ThisMonthsEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Sitecore.ContentSearch" Version="9.3.0" />
+    <PackageReference Include="Sitecore.ContentSearch.Linq" Version="9.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\SitecoreHelperExtensions\code\Sitecon.Foundation.SitecoreHelperExtensions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Views\Events\ThisMonthsEvents.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Events\EventSchedule.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Views\Events\FeaturedSpeakers.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -1,0 +1,17 @@
+﻿@using Sitecore.Mvc
+@using Sitecon.Foundation.SitecoreHelperExtensions
+@using Sitecon.Feature.Events
+@model Sitecon.Feature.Events.Models.EventsSearch
+
+<div>
+
+  <h1 class="title">@Html.Sitecore().Field("__Display Name", Model.ParentItem)</h1>
+  @foreach (var siteconEvent in Model.ListOfEventItems)
+  {
+
+    <div>
+      <a href="@siteconEvent.Url">@Html.Sitecore().Field("Event Name", siteconEvent.Item)</a>
+    </div>
+  }
+
+</div>

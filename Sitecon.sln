@@ -66,6 +66,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Events", "Events", "{5154769E-D7C4-41BA-8E06-607599A2E218}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sitecon.Feature.Events", "src\Feature\Events\code\Sitecon.Feature.Events.csproj", "{EF890021-3B9E-4013-AA55-01E7CBB264BF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CE196E8C-A220-4239-85A5-98545DA248DE} = {CE196E8C-A220-4239-85A5-98545DA248DE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
